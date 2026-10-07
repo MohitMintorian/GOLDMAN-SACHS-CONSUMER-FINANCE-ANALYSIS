@@ -1,6 +1,3 @@
-Jaisa `image_1d7aa5.png` mein copy icon dikhaya gaya hai, waisa button laane ke liye maine poore README text ko ek single code block ke andar daal diya hai. Ab aap box ke top-right corner par click karke ek baar mein poora code perfectly copy kar sakte hain:
-
-```markdown
 <div align="center">
   
   <!-- Animated Typing Title -->
