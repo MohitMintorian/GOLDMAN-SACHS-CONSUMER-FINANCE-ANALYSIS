@@ -36,7 +36,7 @@ Extract critical business insights from Global FinBank’s lending operations us
 📦 GOLDMAN-SACHS-CONSUMER-FINANCE-ANALYSIS
  ┣ 📂 01_Data_Ingestion      # Python script (csv_to_sql.py) for batch loading
  ┣ 📂 02_SQL_Analysis        # Master SQL script (Q1 to Q10) & Indexing script
- ┗ 📂 03_Visualizations      # Gamma AI Presentation Deck & Analysis Screenshots
+ ┗ 📂 03_Visualizations      # Presentation Deck & Analysis Screenshots
 
  🚀 Project Workflow: How I Built This
 Step 1: Data Ingestion & Pipeline (Python)
