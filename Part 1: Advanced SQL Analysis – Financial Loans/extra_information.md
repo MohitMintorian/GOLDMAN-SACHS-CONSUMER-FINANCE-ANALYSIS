@@ -6,8 +6,8 @@
 <br>
 
 <div align="center">
-  <!-- Animated Auto-Typing Title -->
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=2000&pause=500&color=00D26A&center=true&vCenter=true&width=800&lines=Technical+Appendix+%26+Extra+Info;Data+Dictionary+%26+Assumptions;Troubleshooting+%26+Future+Scope+🚀" alt="Animated Typing SVG" />
+  <h2 style="color: #00D26A;">Technical Appendix & Extra Info</h2>
+  <p><b>Data Dictionary & Assumptions | Troubleshooting & Future Scope 🚀</b></p>
 </div>
 
 ---
