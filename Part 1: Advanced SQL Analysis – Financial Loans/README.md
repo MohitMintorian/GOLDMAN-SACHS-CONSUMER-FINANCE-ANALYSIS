@@ -40,7 +40,6 @@ Extract critical business insights from Global FinBank’s lending operations us
 
  🚀 Project Workflow: How I Built This
 Step 1: Data Ingestion & Pipeline (Python)
-
 Received the raw financial dataset containing over 270,000 records.
 
 Wrote a custom Python script (csv_to_sql.py) using pandas and sqlalchemy.
@@ -48,31 +47,25 @@ Wrote a custom Python script (csv_to_sql.py) using pandas and sqlalchemy.
 Processed and loaded the massive dataset into MySQL using batch processing (chunksize=10000) to prevent memory overload and database crashes.
 
 Step 2: Database Setup & Optimization (MySQL)
-
 Created the relational database (project_capstone) and defined schemas for customer, loan, and state_region tables.
 
 Applied query performance tuning by creating Indexes on high-traffic columns (loan_status, customer_id).
 
 Step 3: Advanced SQL Analytics
-
 Tackled 10 complex business problems focused on risk and portfolio health.
 
 Applied advanced logic: Common Table Expressions (CTEs) for income binning, LAG() Window Functions for YoY growth, and CASE WHEN statements to build proxy metrics (like DTI ratios and missed payment estimators).
 
 Step 4: Business Storytelling & Presentation
-
 Translated raw SQL outputs into actionable business insights.
 
 Structured a professional executive presentation using Gamma AI to effectively communicate findings (like regional pricing, high-risk flags, and loan success rates) to stakeholders.
-
 
 📊 Part 1: Advanced SQL Analysis Highlights
 Click on any question below to see the business logic and key analytical approach:
 
 ⚡ Performance Optimization
 To maintain sub-second query execution on 270k+ rows, database indexes were created on heavily joined and filtered predicates:
-
-SQL
 -- Database Optimization
 CREATE INDEX idx_loan_status ON loan(loan_status);
 CREATE INDEX idx_customer_id ON loan(customer_id);
