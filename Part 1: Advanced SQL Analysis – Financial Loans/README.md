@@ -1,71 +1,141 @@
+# Loan-Approval-Prediction
+
+End-to-end ML pipeline for Loan Approval Prediction using Python, Pandas, and Scikit-Learn. Achieved 92.7% accuracy and 96.6% ROC-AUC using Logistic Regression.
+
 <div align="center">
-  <!-- Animated Typing Title -->
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&pause=1000&color=005C84&center=true&vCenter=true&width=800&lines=Global+FinBank+-+Financial+Loans+Analysis;Advanced+SQL+Capstone+Project;Portfolio+Risk%2C+Growth+%26+Performance+Audit" alt="Typing SVG" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=150&section=header&text=Elite%20Loan%20Approval%20Prediction&fontSize=30&fontAlignY=38&animation=twinkling" />
 </div>
 
 <div align="center">
-  <!-- Tech Stack Badges -->
-  <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
-  <img src="https://img.shields.io/badge/Financial_Analytics-FF6F00?style=for-the-badge&logo=google-analytics&logoColor=white" />
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/Scikit_Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white)
+
+> **Predicting loan approvals using Data Analytics and Machine Learning to streamline banking decisions, reduce human bias, and mitigate credit risk.**
+
 </div>
-
-<br/>
-
-## 🎯 Project Objective
-Extract critical business insights from Global FinBank’s lending operations using **Advanced SQL** (CTEs, Window Functions, Data Binning, and Proxy Logic). This analysis helps bank leadership make data-driven decisions on **risk management, portfolio growth, and approval efficiency**.
-
-<br/>
-
-<details>
-  <summary><b>✨ Click Here to see the Technical Architecture & Ingestion Setup</b></summary>
-  <br/>
-  
-  - **Database Management System:** MySQL Server (`project_capstone`)
-  - **Automated Data Ingestion:** Python script using Pandas batch processing (`chunksize=10000`) and SQLAlchemy to load massive datasets safely.
-  - **Advanced SQL Techniques:** CTEs, `LAG()` Window Functions, Multi-condition `CASE WHEN` logic, Data Binning, and Database Indexing for optimization.
-  - **Reporting & Deliverables:** Comprehensive Master `.sql` script and Executive Presentation via Gamma AI.
-</details>
 
 ---
 
-## 📂 Repository Structure
+## 🧐 The "Why": Project Objective
 
-```text
-📦 GOLDMAN-SACHS-CONSUMER-FINANCE-ANALYSIS
- ┣ 📂 01_Data_Ingestion      # Python script (csv_to_sql.py) for batch loading
- ┣ 📂 02_SQL_Analysis        # Master SQL script (Q1 to Q10) & Indexing script
- ┗ 📂 03_Visualizations      # Presentation Deck & Analysis Screenshots
+In today's fast-paced financial world, loan approval is a critical aspect of banking. Traditionally, this process has been heavily dependent on manual assessments, making it time-consuming and prone to human bias. I conducted a comprehensive machine learning study on over 4,000 loan applications to decode the financial patterns of applicants and automate the decision-making process.
 
- 🚀 Project Workflow: How I Built This
-Step 1: Data Ingestion & Pipeline (Python)
-Received the raw financial dataset containing over 270,000 records.
+By processing historical and real-time financial data, I aimed to:
+1. 🔍 **Identify the drivers of creditworthiness** (what makes an applicant a safe bet).
+2. ⚖️ **Eliminate human bias** (ensuring fair and consistent evaluations for all).
+3. 🤖 **Build a predictive engine** that can automatically forecast whether a loan should be approved or rejected with high accuracy.
 
-Wrote a custom Python script (csv_to_sql.py) using pandas and sqlalchemy.
+---
 
-Processed and loaded the massive dataset into MySQL using batch processing (chunksize=10000) to prevent memory overload and database crashes.
+## 📊 The Dataset
 
-Step 2: Database Setup & Optimization (MySQL)
-Created the relational database (project_capstone) and defined schemas for customer, loan, and state_region tables.
+The project utilizes the `loan_approval_dataset.csv` dataset, which contains **4,269 records** and **13 features**.
 
-Applied query performance tuning by creating Indexes on high-traffic columns (loan_status, customer_id).
+**Key Features Include:**
+- 🧑‍🤝‍🧑 **Demographic Factors:** Number of dependents, education, and self-employment status.
+- 💰 **Financial Factors:** Annual income, loan amount, and loan term.
+- 📈 **Credit History:** CIBIL score.
+- 🏠 **Asset Values:** Residential, commercial, luxury, and bank asset values.
+- 🎯 **Target Variable:** `loan_status` (Approved/Rejected).
 
-Step 3: Advanced SQL Analytics
-Tackled 10 complex business problems focused on risk and portfolio health.
+---
 
-Applied advanced logic: Common Table Expressions (CTEs) for income binning, LAG() Window Functions for YoY growth, and CASE WHEN statements to build proxy metrics (like DTI ratios and missed payment estimators).
+## 🚀 The Pipeline: My Workflow
 
-Step 4: Business Storytelling & Presentation
-Translated raw SQL outputs into actionable business insights.
+### 🧹 1. Data Cleaning & Preprocessing
+Financial data needs to be spotless. I implemented a cleaning pipeline that:
+- Removed non-predictive features like `loan_id`.
+- Standardized column nomenclature by stripping trailing spaces and lowercasing.
+- Validated data integrity, ensuring zero missing values across the 4,269 records.
 
-Structured a professional executive presentation using Gamma AI to effectively communicate findings (like regional pricing, high-risk flags, and loan success rates) to stakeholders.
+### 📉 2. Exploratory Data Analysis (EDA)
+I visualized the data to reveal hidden financial stories:
+- **Demand Concentration:** Discovered that nearly 75% of loan applications were for amounts below ₹20,000,000 (2 Crore).
+- **Income vs. Approval:** Analyzed that median income was identical for both approved and rejected loans, proving that income alone is *not* enough to predict approval.
+- **Credit Mapping:** Mapped CIBIL score distributions to understand the risk profiles of the applicants.
 
-📊 Part 1: Advanced SQL Analysis Highlights
-Click on any question below to see the business logic and key analytical approach:
+### 🛠️ 3. Advanced Feature Engineering
+To give the model a deeper understanding of an applicant's financial health, I engineered new predictive features:
+- **Debt-to-Income Ratio:** A mathematical transformation (`loan_amount` / `income_annum`) to measure an applicant's repayment capacity.
+- **Total Assets:** Aggregated residential, commercial, luxury, and bank assets into a single comprehensive wealth metric.
 
-⚡ Performance Optimization
-To maintain sub-second query execution on 270k+ rows, database indexes were created on heavily joined and filtered predicates:
--- Database Optimization
-CREATE INDEX idx_loan_status ON loan(loan_status);
-CREATE INDEX idx_customer_id ON loan(customer_id);
+### 🧠 4. Predictive Modeling (Logistic Regression)
+To automate the decision process, I built a **Logistic Regression** model. The data was split 80:20 (Train/Test) and scaled to ensure large numbers didn't overpower the algorithm. I also applied class balancing to handle target variable discrepancies.
+
+---
+
+## 🏆 Model Performance
+
+The model achieved excellent discrimination ability, proving to be a highly reliable and scalable solution for automating loan approval decisions.
+
+| Metric | Score |
+| :--- | :--- |
+| 🎯 **Accuracy** | **92.74%** |
+| 📈 **ROC-AUC** | **96.60%** |
+| 🔍 **Precision** | **87.61%** |
+| 🔄 **Recall** | **94.12%** |
+| ⚖️ **F1-Score** | **90.75%** |
+
+> 💡 **Business Impact:** High recall ensures that most creditworthy applicants are correctly identified, while strong precision (87.6%) minimizes the expensive risk of "false approvals" (giving bad loans).
+
+---
+
+## 💻 Complete Python Implementation
+
+<details>
+<summary><b>🔥 Click here to view the full Python Code for this project</b></summary>
+<br/>
+
+```python
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, roc_auc_score
+
+# 1. Load and Clean Data
+df = pd.read_csv('loan_approval_dataset.csv')
+df.drop('loan_id', axis=1, inplace=True)
+df.columns = df.columns.str.strip().str.lower()
+
+# 2. Feature Engineering
+le = LabelEncoder()
+for col in ['education', 'self_employed', 'loan_status']:
+    df[col] = le.fit_transform(df[col])
+
+df['debt_to_income_ratio'] = df['loan_amount'] / df['income_annum']
+df['total_assets'] = (df['residential_assets_value'] + 
+                      df['commercial_assets_value'] + 
+                      df['luxury_assets_value'] + 
+                      df['bank_asset_value'])
+
+# 3. Train-Test Split & Scaling
+feature_cols = ['no_of_dependents', 'education', 'self_employed', 'income_annum',
+                'loan_amount', 'loan_term', 'cibil_score', 'residential_assets_value', 
+                'commercial_assets_value', 'luxury_assets_value', 'bank_asset_value', 
+                'debt_to_income_ratio', 'total_assets']
+
+X = df[feature_cols]
+y = df['loan_status']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=18, stratify=y)
+
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# 4. Model Training & Evaluation
+log_reg = LogisticRegression(max_iter=1000, class_weight="balanced")
+log_reg.fit(X_train, y_train)
+
+y_pred = log_reg.predict(X_test)
+y_proba = log_reg.predict_proba(X_test)[:, 1]
+
+print(f"Accuracy: {accuracy_score(y_test, y_pred)*100:.2f}%")
+print(f"ROC-AUC: {roc_auc_score(y_test, y_proba)*100:.2f}%")
